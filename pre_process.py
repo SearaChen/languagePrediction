@@ -14,6 +14,7 @@ import csv
 
 
 '''
+MAKE SURE: all the provided data is in the same directory as this python file!!!
 call this module with the method : pre_process
 pre_proess takes in argument 'pca'
 pca takes on some number <= 0.8, lower number, fewer dimension the data is reduced to 
