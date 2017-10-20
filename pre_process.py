@@ -83,11 +83,7 @@ def read_in_train():
 	X_train, X_test, y_train, y_test = train_test_split(df,r, test_size=0.2, random_state=1)
 	return [X_train, X_test, y_train, y_test,tf]
 	'''
-	
-def apply_PCA(X_train,new_dimension):
-	pca = PCA(n_components = new_dimension)
-	X_final=pca.fit_transform(X_train)
-	return X_final
+
 
 def apply_PCA_modified (X_train):
 	pca=PCA(n_components=0.5)
@@ -187,7 +183,7 @@ def pre_process(pca):
 	'''
 	X_train, X_test, y_train, y_test,vocab=read_in_train()
 	if pca != None:
-		X_train,pca= apply_PCA(X_train,pca)
+		X_train,pca= apply_PCA_modified(X_train,pca)
 		X_test = pca.transform(X_test)
 	else:
 		pass
