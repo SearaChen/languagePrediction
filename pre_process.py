@@ -85,8 +85,8 @@ def read_in_train():
 	'''
 
 
-def apply_PCA_modified (X_train):
-	pca=PCA(n_components=0.5)
+def apply_PCA_modified (X_train,pca_ratio):
+	pca=PCA(n_components=pca_ratio)
 	pca=pca.fit(X_train)
 	X_final= pca.transform(X_train)
 	return (X_final,pca)
@@ -177,13 +177,13 @@ def multinomial_NB(X_train, y_train, X_test, y_test):
 
 
 
-def pre_process(pca):
+def pre_process(pca_ratio):
 	'''
 	for teammates' use for pre_processing data
 	'''
 	X_train, X_test, y_train, y_test,vocab=read_in_train()
 	if pca != None:
-		X_train,pca= apply_PCA_modified(X_train,pca)
+		X_train,pca= apply_PCA_modified(X_train,pca_ratio)
 		X_test = pca.transform(X_test)
 	else:
 		pass
