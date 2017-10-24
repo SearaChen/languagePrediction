@@ -218,28 +218,7 @@ def logistic_regression(X_train, y_train, X_test, y_test):
 	print accuracy
 	return clf
 
-def multinomial_NB(X_train, y_train, X_test, y_test):
-	X_train=np.array(X_train)
-	y_train=np.array(y_train)
-	X_test=np.array(X_test)
-	y_test=np.array(y_test)
-	clf = MultinomialNB(alpha=1)
-	#clf = MultinomialNB()
-	clf.fit(X_train,y_train)
-	accuracy=clf.score(X_test, y_test, sample_weight=None)
 
-	y_pred=clf.predict(np.array(X_test))
-	cnf_matrix = confusion_matrix(y_test, y_pred)
-	np.set_printoptions(precision=2)
-	class_names=[0,1,2,3,4]
-	plt.figure()
-	plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
-                      title='Normalized confusion matrix')
-
-	plt.show()
-	
-	print accuracy
-	return clf
 
 def decision_tree(X_train, y_train, X_test, y_test):
 	X_train=np.array(X_train)
