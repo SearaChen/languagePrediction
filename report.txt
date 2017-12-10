@@ -1,7 +1,22 @@
+for the heatmap:
+number of contact events over whole GC content of read_A and read_B
+
 COMPUTER R SQUARE FOR EACH OF THE MODEL
 summary(eruption.lm)$r.squared 
 
-PREPROCESSING
+PREPROCESSING and feature preprocessing 
+both data are performed on mESC, using HindIII as restriction enzyme, on chormosome X. The Hi-C data is extracted from GEO dataset , while the 5C is from GSE00000. The original Hi-C data is gerenated over the entire genome, which is of a much larger scope than the scope at which 5C is performed. Thus from Hi-C we only extracted the contact detected also by 5C. Specifically, since both  expriments use the same restriction enzyme, we map the genomic location at which the contact is detected to the corresponding restriction fragments(RFs), and we pick the RF-RF interactions that were detected by both Hi-C and 5C. 
+
+The feature selection is inspired by Yaffe and Tanay’s work, which was originally published in Lieberman-Aiden et al., 2009, in which the GC composition of restriction fragments, the length of restriction fragments, and the distance between restrictions fragments are shown to be important factors that affect the contract frequency detected by Hi-C. Thus these factor were computed and used as features, seen in Table 1. In addition to the GC content of 200bps at both fragment ends, we also calculated the GC composition in the entire restriction fragments, both represented in percentage. 
+
+*INSERT TABLE 1*
+
+There are other factors mentioned in the paper, such as mappability which is not included for in the feature selection. This is due to feasibility reasons, and we will leave them for future explorations. 
+
+
+- make it discrete
+For some of the model we have selected:  zero-inflated poisson regression, negative binomial regression, only integer value are allowed on the dependent variable(contact_freq). The raw 5C data, however, is continous value is it has been normalized. Thus we make continous by scaling all contact frequency detected by 10E4, and rounding the .....Ideally, we would like to scale up 
+
 
 
 LINEAR Model 
@@ -11,9 +26,11 @@ COMMENTS ON WHY IS IT SKEWD
 
 WHY ARE EACH OF THE MODEL PICKED
 
-EXPLAINING PRE-DATA PROCESSING
+
 
 GOING FURTHER
+- the way of making the data discrete
+- more features, expressive model
 - more dataset 
 - tuning of models
 - seperate 
