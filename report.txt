@@ -1,0 +1,20 @@
+COMPUTER R SQUARE FOR EACH OF THE MODEL
+summary(eruption.lm)$r.squared 
+
+PREPROCESSING
+
+
+LINEAR Model 
+
+
+COMMENTS ON WHY IS IT SKEWD
+
+WHY ARE EACH OF THE MODEL PICKED
+
+EXPLAINING PRE-DATA PROCESSING
+
+GOING FURTHER
+- more dataset 
+- tuning of models
+- seperate 
+- potentially transition to trans-contact
